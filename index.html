@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>十題問卷表單</title>
+  <style>
+    body { font-family: "Microsoft JhengHei", Arial, sans-serif; background:#f6f7fb; }
+    .wrap { display: flex; justify-content: center; padding: 2rem; }
+    .card { background: #fff; padding: 2rem; border-radius: 12px; max-width: 800px; width: 100%; }
+    .field { margin-bottom: 1rem; }
+    .label { font-weight: bold; margin-bottom: .25rem; display:block; }
+    input, select, textarea { width: 100%; padding: .5rem; border: 1px solid #ccc; border-radius: 8px; }
+    .options { display: flex; flex-wrap: wrap; gap: .5rem 1rem; }
+    .actions { margin-top: 1rem; display:flex; gap:1rem; }
+    button { padding: .5rem 1rem; border: none; border-radius: 8px; cursor: pointer; }
+    .btn-primary { background:#3b82f6; color:#fff; }
+    .btn-ghost { background:#f3f4f6; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <h1>十題問卷表單</h1>
+      <form action="/submit" method="post">
+        <!-- Q1 -->
+        <div class="field">
+          <label class="label" for="name">Q1. 姓名</label>
+          <input id="name" name="name" required>
+        </div>
+        <!-- Q2 -->
+        <div class="field">
+          <label class="label" for="email">Q2. 電子郵件</label>
+          <input id="email" name="email" type="email" required>
+        </div>
+        <!-- Q3 -->
+        <div class="field">
+          <label class="label" for="tel">Q3. 聯絡電話</label>
+          <input id="tel" name="tel" required>
+        </div>
+        <!-- Q4 -->
+        <div class="field">
+          <label class="label" for="birth">Q4. 出生日期</label>
+          <input id="birth" name="birth" type="date">
+        </div>
+        <!-- Q5 -->
+        <div class="field">
+          <span class="label">Q5. 性別</span>
+          <div class="options">
+            <label><input type="radio" name="gender" value="male">男</label>
+            <label><input type="radio" name="gender" value="female">女</label>
+            <label><input type="radio" name="gender" value="na">不透露</label>
+          </div>
+        </div>
+        <!-- Q6 -->
+        <div class="field">
+          <span class="label">Q6. 興趣（可複選）</span>
+          <div class="options">
+            <label><input type="checkbox" name="hobby" value="sports">運動</label>
+            <label><input type="checkbox" name="hobby" value="music">音樂</label>
+            <label><input type="checkbox" name="hobby" value="reading">閱讀</label>
+            <label><input type="checkbox" name="hobby" value="gaming">電玩</label>
+            <label><input type="checkbox" name="hobby" value="travel">旅行</label>
+          </div>
+        </div>
+        <!-- Q7 -->
+        <div class="field">
+          <label class="label" for="city">Q7. 居住城市</label>
+          <select id="city" name="city" required>
+            <option value="">請選擇</option>
+            <option>台北</option><option>新北</option><option>桃園</option>
+            <option>台中</option><option>台南</option><option>高雄</option>
+          </select>
+        </div>
+        <!-- Q8 -->
+        <div class="field">
+          <label class="label" for="eng">Q8. 英文程度（1-10）</label>
+          <input id="eng" name="english_score" type="range" min="1" max="10" value="5">
+        </div>
+        <!-- Q9 -->
+        <div class="field">
+          <span class="label">Q9. 資訊來源</span>
+          <div class="options">
+            <label><input type="radio" name="source" value="friends">親友推薦</label>
+            <label><input type="radio" name="source" value="social">社群媒體</label>
+            <label><input type="radio" name="source" value="school">學校公告</label>
+          </div>
+        </div>
+        <!-- Q10 -->
+        <div class="field">
+          <label class="label" for="feedback">Q10. 建議/意見</label>
+          <textarea id="feedback" name="feedback"></textarea>
+        </div>
+
+        <div class="actions">
+          <button type="reset" class="btn-ghost">清除</button>
+          <button type="submit" class="btn-primary">送出</button>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
