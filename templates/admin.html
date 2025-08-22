@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">📊 後台管理</h1>
+
+<a href="{{ url_for('logout') }}" class="mb-4 inline-block bg-gray-500 text-white px-3 py-1 rounded">登出</a>
+
+<table class="w-full border-collapse bg-white shadow-md rounded-lg overflow-hidden">
+  <thead class="bg-gray-200">
+    <tr>
+      <th class="border p-2">ID</th>
+      <th class="border p-2">Q1 帥氣分數</th>
+      <th class="border p-2">Q2 實力說話</th>
+      <th class="border p-2">Q3 風趣嗎</th>
+      <th class="border p-2">Q4 一句話形容</th>
+      <th class="border p-2">圖片</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in rows %}
+    <tr class="hover:bg-gray-100">
+      <td class="border p-2">{{ row[0] }}</td>
+      <td class="border p-2">{{ row[1] }}</td>
+      <td class="border p-2">{{ row[2] }}</td>
+      <td class="border p-2">{{ row[3] }}</td>
+      <td class="border p-2">{{ row[4] }}</td>
+      <td class="border p-2 text-center">
+        {% if row[5] %}
+          <img src="{{ url_for('static', filename='uploads/' ~ row[5]) }}" class="w-24 h-24 object-cover mx-auto">
+        {% else %}
+          無
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

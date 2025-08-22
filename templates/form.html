@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="text-2xl font-bold mb-4 text-center">劉大帥調查表</h1>
+
+<form method="post" class="space-y-8 bg-white shadow-md p-6 rounded-lg">
+
+  <!-- Q1 -->
+  <div>
+    <p class="font-semibold">1. 劉大帥多帥？</p>
+    <div class="flex space-x-4">
+      {% for i in range(1,6) %}
+        <label>
+          <input type="radio" name="q1" value="{{ i }}" {% if i<4 %}disabled{% endif %}> {{ i }}
+        </label>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div>
+    <p class="font-semibold">2. 劉大帥是不是不講幹話只用實力說話？</p>
+    <div>
+      <label><input type="radio" name="q2" value="是" checked> 是</label>
+      <label><input type="radio" name="q2" value="否" disabled> 否</label>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div>
+    <p class="font-semibold">3. 劉大帥風趣嗎？</p>
+    <div>
+      <label><input type="radio" name="q3" value="是" checked> 是</label>
+      <label><input type="radio" name="q3" value="否" disabled> 否</label>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div>
+    <p class="font-semibold">4. 用一句話形容劉大帥</p>
+    <textarea name="q4" class="w-full border rounded p-2" maxlength="120" required></textarea>
+  </div>
+
+  <!-- 最下面的圖片 -->
+  <div class="text-center">
+    <img src="/static/images/liu.jpg" 
+         alt="劉大帥"
+         class="rounded-lg shadow-md w-64 mx-auto mb-4">
+  </div>
+
+  <div class="text-center">
+    <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded">送出</button>
+  </div>
+</form>
+{% endblock %}
